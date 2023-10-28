@@ -1,1 +1,1 @@
-python src/train.py --train_batch_size=8 --accum_steps=4 --gpus=1
+python src/train.py --train_batch_size=8 --accum_steps=16 --gpus=1
