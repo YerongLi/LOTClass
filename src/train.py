@@ -37,13 +37,13 @@ def main():
                         help='self training update interval; 50 is good in general')
     parser.add_argument('--accum_steps', type=int, default=1,
                         help='gradient accumulation steps during training')
-    parser.add_argument('--mcp_epochs', type=int, default=3,
+    parser.add_argument('--mcp_epochs', type=int, default=1,
                         help='masked category prediction training epochs; 3-5 usually is good depending on dataset size (smaller dataset needs more epochs)')
     parser.add_argument('--self_train_epochs', type=float, default=1,
                         help='self training epochs; 1-5 usually is good depending on dataset size (smaller dataset needs more epochs)')
     parser.add_argument('--early_stop', action='store_true',
                         help='whether or not to enable early stop of self-training')
-    parser.add_argument('--gpus', default=3, type=int,
+    parser.add_argument('--gpus', default=1, type=int,
                         help='number of gpus to use')
     parser.add_argument('--dist_port', type=int, default=12345,
                         help='distributed training port id; any number between 10000 and 20000 will work')
