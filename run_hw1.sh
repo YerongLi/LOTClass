@@ -11,8 +11,8 @@ TRAIN_BATCH=32
 ACCUM_STEP=2
 EVAL_BATCH=128
 GPUS=2
-MCP_EPOCH=3
-SELF_TRAIN_EPOCH=1
+MCP_EPOCH=30
+SELF_TRAIN_EPOCH=0
 
 python src/train.py --dataset_dir datasets/${DATASET}/ --label_names_file ${LABEL_NAME_FILE} \
                     --train_file ${TRAIN_CORPUS} \
