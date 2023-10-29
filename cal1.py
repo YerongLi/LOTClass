@@ -7,8 +7,8 @@ with open('datasets/movies/movies_train_labels.txt', 'r') as file:
 # Read the predicted labels
 with open('datasets/movies/out.txt', 'r') as file:
     predicted_labels = [int(line.strip()) for line in file]
-print(set(true_labels)))
-print(set(predicted_labels)))
+print(set(true_labels))
+print(set(predicted_labels))
 # Calculate precision, recall, and F1 score
 precision = precision_score(true_labels, predicted_labels, average='binary')
 recall = recall_score(true_labels, predicted_labels, average='binary')
