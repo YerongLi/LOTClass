@@ -9,9 +9,9 @@ with open('datasets/movies/out.txt', 'r') as file:
     predicted_labels = [int(line.strip()) for line in file]
 
 # Calculate precision, recall, and F1 score
-precision = precision_score(true_labels, predicted_labels)
-recall = recall_score(true_labels, predicted_labels)
-f1 = f1_score(true_labels, predicted_labels)
+precision = precision_score(true_labels, predicted_labels, average='binary')
+recall = recall_score(true_labels, predicted_labels, average='binary')
+f1 = f1_score(true_labels, predicted_labels, average='binary')
 
 # Display the results
 print(f'Precision: {precision:.4f}')
