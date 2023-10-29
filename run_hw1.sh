@@ -2,10 +2,10 @@ export CUDA_DEVICE_ORDER=PCI_BUS_ID
 export CUDA_VISIBLE_DEVICES=0,1
 
 DATASET=movies
-LABEL_NAME_FILE=label_names.txt
+LABEL_NAME_FILE=movies_category.txt
 TRAIN_CORPUS=movies_train.txt
 TEST_CORPUS=_movies_test.txt
-TEST_LABEL=movies_category.txt
+TEST_LABEL=movies_train_labels.txt
 MAX_LEN=200
 TRAIN_BATCH=32
 ACCUM_STEP=2
