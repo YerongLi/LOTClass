@@ -49,7 +49,7 @@ print(f"Reading texts from {os.path.join(dataset_dir, text_file)}")
 corpus = open(os.path.join(dataset_dir, text_file), encoding="utf-8")
 docs = [doc.strip() for doc in corpus.readlines()]
 print(f"Converting texts into tensors.")
-chunks = 4
+chunk_size = 4
 # chunk_size = ceil(len(docs) / self.num_cpus)
 chunks = [docs[x:x+chunk_size] for x in range(0, len(docs), chunk_size)]
 results = Parallel(n_jobs=self.num_cpus)(delayed(self.encode)(docs=chunk) for chunk in chunks)
