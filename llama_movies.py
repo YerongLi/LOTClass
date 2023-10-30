@@ -4,6 +4,7 @@ import logging
 import torch
 import os
 import pickle
+from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer,LlamaForCausalLM
 
 logging.basicConfig(
@@ -32,7 +33,7 @@ logging.info(f'Logger start: {os.uname()[1]}')
 # model_path = "/scratch/yerong/.cache/pyllama/vicuna-7b-v1.3"
 # model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-chat-hf/"
 model_path = "gpt2"
-# model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/"
+model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/"
 # device = "cuda:0"  # You can set this to "cpu" if you don't have a GPU
 device='cuda:0'
 
@@ -75,7 +76,7 @@ Output: good
 
 Input: """
 output_map = {"bad": 0, "good": 1}
-for input_text in docs:
+for input_text in tqdm(docs):
     # Convert text to input_ids
     input_ids = tokenizer.encode(input_text, return_tensors="pt").to(device)
 
