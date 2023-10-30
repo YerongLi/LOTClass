@@ -84,6 +84,7 @@ for input_text in tqdm(docs):
     with torch.no_grad():
         outputs = model(input_ids=input_ids)
         logits = outputs[0]
+        print(logits.shape)
 
     # Extract the probability for the token "good" and "bad"
     output_map = {"bad": 0, "good": 1}
