@@ -44,7 +44,7 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map='auto',
 ).eval()
 tokenizer = AutoTokenizer.from_pretrained(model_path)
-
+device='cuda:0'
 text_file='movies_train.txt'
 dataset_dir='datasets/movies'
 loader_file='llama_movies.pt'
