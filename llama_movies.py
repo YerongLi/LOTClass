@@ -97,7 +97,7 @@ for input_text in tqdm(docs):
 #         file.write(token + "\n")
 
 
-with open(f"{model_name}_out.txt", "w") as file:
+with open(os.path.join(dataset_dir,f"{model_name}_out.txt"), "w") as file:
     for label in predicted_labels:
         file.write(str(label) + "\n")
 
