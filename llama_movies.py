@@ -34,6 +34,7 @@ logging.info(f'Logger start: {os.uname()[1]}')
 model_path = "gpt2"
 # model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/"
 # device = "cuda:0"  # You can set this to "cpu" if you don't have a GPU
+device='cuda:0'
 
 # Load the model
 logging.info('Loading the model')
@@ -41,10 +42,10 @@ model = AutoModelForCausalLM.from_pretrained(
     model_path,
     torch_dtype=torch.float16,
     trust_remote_code=True,
-    device_map='auto',
+    device=device,
+    # device_map='auto',
 ).eval()
 tokenizer = AutoTokenizer.from_pretrained(model_path)
-device='cuda:0'
 predicted_labels = []
 
 text_file='movies_train.txt'
