@@ -45,7 +45,7 @@ model = LlamaForCausalLMPartial.from_pretrained(
 ).eval()
 text_file='movies_train.txt'
 dataset_dir='datasets/movies'
-loader_file='llama.pt'
+loader_file='llama_movies.pt'
 print(f"Reading texts from {os.path.join(dataset_dir, text_file)}")
 corpus = open(os.path.join(dataset_dir, text_file), encoding="utf-8")
 docs = [doc.strip() for doc in corpus.readlines()]
