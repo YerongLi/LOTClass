@@ -49,8 +49,8 @@ tokenizer = AutoTokenizer.from_pretrained(model_path)
 predicted_labels = []
 
 text_file=f'{dataset}_train.txt'
-dataset_dir='datasets/{dataset}'
-loader_file='llama_{dataset}}.pt'
+dataset_dir=f'datasets/{dataset}'
+# loader_file='llama_{dataset}}.pt'
 print(f"Reading texts from {os.path.join(dataset_dir, text_file)}")
 corpus = open(os.path.join(dataset_dir, text_file), encoding="utf-8")
 docs = [doc.strip() for doc in corpus.readlines()]
