@@ -1,7 +1,7 @@
 from sklearn.metrics import precision_score, recall_score, f1_score
 
 # Read the ground truth labels
-with open('datasets/news/movies_train_labels.txt', 'r') as file:
+with open('datasets/movies/movies_train_labels.txt', 'r') as file:
     true_labels = [int(line.strip()) for line in file]
 
 # Read the predicted labels
