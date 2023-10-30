@@ -63,7 +63,7 @@ corpus = open(os.path.join(dataset_dir, text_file), encoding="utf-8")
 docs = [doc.strip() for doc in corpus.readlines()]
 docs = docs[:120]
 print(f"Converting texts into tensors.")
-if model_name ==llama:
+if model_name =='llama':
     prompt = """
     In the following movie review classification task, you are given a text.
     Your goal is to classify whether the movie review is 'bad' or 'good'.
