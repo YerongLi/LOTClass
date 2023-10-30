@@ -78,7 +78,7 @@ Input: """
 output_map = {"bad": 0, "good": 1}
 for input_text in tqdm(docs):
     # Convert text to input_ids
-    input_ids = tokenizer.encode(input_text, return_tensors="pt").to(device)
+    input_ids = tokenizer.encode(prompt+input_text, return_tensors="pt").to(device)
 
     # Get the model output for the input_ids
     with torch.no_grad():
