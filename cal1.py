@@ -5,7 +5,7 @@ with open('datasets/movies/movies_train_labels.txt', 'r') as file:
     true_labels = [int(line.strip()) for line in file]
 
 # Read the predicted labels
-with open('datasets/movies/out.txt', 'r') as file:
+with open('datasets/movies/llama_out.txt', 'r') as file:
     predicted_labels = [int(line.strip()) for line in file]
 true_labels=true_labels[:100]
 print(set(true_labels))
