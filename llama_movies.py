@@ -32,8 +32,8 @@ def todevice(feat, device):
 logging.info(f'Logger start: {os.uname()[1]}')
 # model_path = "/scratch/yerong/.cache/pyllama/vicuna-7b-v1.3"
 # model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-chat-hf/"
-model_path = "gpt2"
-model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/"
+model_path, model_name = "Transformer XL", "xl"
+model_path, model_name = "/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/", 'llama'
 # device = "cuda:0"  # You can set this to "cpu" if you don't have a GPU
 device='cuda:0'
 
@@ -54,7 +54,7 @@ dataset_dir=f'datasets/{dataset}'
 print(f"Reading texts from {os.path.join(dataset_dir, text_file)}")
 corpus = open(os.path.join(dataset_dir, text_file), encoding="utf-8")
 docs = [doc.strip() for doc in corpus.readlines()]
-docs = docs[:120]
+docs = docs[:20]
 print(f"Converting texts into tensors.")
 prompt = """
 In the following movie review classification task, you are given a text.
@@ -92,12 +92,12 @@ for input_text in tqdm(docs):
     predicted_tokens.append(predicted_token)
     predicted_labels.append(predicted_label)
 # Write the predicted tokens to the "llama_out.txt" file
-with open("llama_out.txt", "w") as file:
-    for token in predicted_tokens:
-        file.write(token + "\n")
+# with open("llama_out.txt", "w") as file:
+#     for token in predicted_tokens:
+#         file.write(token + "\n")
 
 
-with open("llama_out.txt", "w") as file:
+with open(f"{model_name}_out.txt", "w") as file:
     for label in predicted_labels:
         file.write(str(label) + "\n")
 
