@@ -97,7 +97,7 @@ for input_text in tqdm(docs):
     # Append the predicted label to the list
     predicted_labels.append(predicted_label)
 
-Write the predicted labels to the "llama_out.txt" file
+# Write the predicted labels to the "llama_out.txt" file
 with open("llama_out.txt", "w") as file:
     for label in predicted_labels:
         file.write(str(label) + "\n")
