@@ -54,7 +54,7 @@ dataset_dir=f'datasets/{dataset}'
 print(f"Reading texts from {os.path.join(dataset_dir, text_file)}")
 corpus = open(os.path.join(dataset_dir, text_file), encoding="utf-8")
 docs = [doc.strip() for doc in corpus.readlines()]
-docs = docs[:120]
+docs = docs[:20]
 print(f"Converting texts into tensors.")
 prompt = """
 In the following movie review classification task, you are given a text.
@@ -86,7 +86,7 @@ for input_text in tqdm(docs):
 
     # Decode the predicted token
     predicted_token = tokenizer.decode(predicted_token_id[0].item())
-
+    print(predicted_token)
     # Append the predicted token to the list
     predicted_tokens.append(predicted_token)
 
