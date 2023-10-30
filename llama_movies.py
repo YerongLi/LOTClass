@@ -47,7 +47,7 @@ model = AutoModelForCausalLM.from_pretrained(
 ).eval()
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 predicted_labels = []
-
+predicted_tokens = []
 text_file=f'{dataset}_train.txt'
 dataset_dir=f'datasets/{dataset}'
 # loader_file='llama_{dataset}}.pt'
