@@ -61,7 +61,7 @@ dataset_dir=f'datasets/{dataset}'
 print(f"Reading texts from {os.path.join(dataset_dir, text_file)}")
 corpus = open(os.path.join(dataset_dir, text_file), encoding="utf-8")
 docs = [doc.strip() for doc in corpus.readlines()]
-docs = docs[:20]
+docs = docs[:120]
 print(f"Converting texts into tensors.")
 prompt = """
 In the following movie review classification task, you are given a text.
