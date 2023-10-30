@@ -43,6 +43,8 @@ model = AutoModelForCausalLM.from_pretrained(
     trust_remote_code=True,
     device_map='auto',
 ).eval()
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+
 text_file='movies_train.txt'
 dataset_dir='datasets/movies'
 loader_file='llama_movies.pt'
