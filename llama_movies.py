@@ -31,7 +31,7 @@ def todevice(feat, device):
 logging.info(f'Logger start: {os.uname()[1]}')
 # model_path = "/scratch/yerong/.cache/pyllama/vicuna-7b-v1.3"
 # model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-chat-hf/"
-model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-chat-hf/"
+model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/"
 device = "cuda:0"  # You can set this to "cpu" if you don't have a GPU
 
 # Load the model
@@ -49,7 +49,8 @@ print(f"Reading texts from {os.path.join(dataset_dir, text_file)}")
 corpus = open(os.path.join(dataset_dir, text_file), encoding="utf-8")
 docs = [doc.strip() for doc in corpus.readlines()]
 print(f"Converting texts into tensors.")
-chunk_size = ceil(len(docs) / self.num_cpus)
+chunks = 4
+# chunk_size = ceil(len(docs) / self.num_cpus)
 chunks = [docs[x:x+chunk_size] for x in range(0, len(docs), chunk_size)]
 results = Parallel(n_jobs=self.num_cpus)(delayed(self.encode)(docs=chunk) for chunk in chunks)
 input_ids = torch.cat([result[0] for result in results])
