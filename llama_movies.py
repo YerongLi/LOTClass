@@ -54,7 +54,7 @@ dataset_dir=f'datasets/{dataset}'
 print(f"Reading texts from {os.path.join(dataset_dir, text_file)}")
 corpus = open(os.path.join(dataset_dir, text_file), encoding="utf-8")
 docs = [doc.strip() for doc in corpus.readlines()]
-docs = docs[:20]
+docs = docs[:120]
 print(f"Converting texts into tensors.")
 prompt = """
 In the following movie review classification task, you are given a text.
@@ -78,29 +78,53 @@ Input: """
 output_map = {"bad": 0, "good": 1}
 for input_text in tqdm(docs):
     # Convert text to input_ids
-    input_ids = tokenizer.encode(prompt+input_text+"\nOutput: ", return_tensors="pt").to(device)
-    # Get the model output for the input_ids
+    input_ids = tokenizer.encode(prompt+input_text+"\nOutput:", return_tensors="pt").to(device)
+
     with torch.no_grad():
-        outputs = model(input_ids=input_ids)
-        logits = outputs[0]
-        print(logits.shape)
+        outputs = model.generate(input_ids, max_length=input_ids.shape[1] + 1)
+        predicted_token_id = outputs[:, -1]
 
-    # Extract the probability for the token "good" and "bad"
-    output_map = {"bad": 0, "good": 1}
-    probs = torch.softmax(logits, dim=-1)
-    prob_good = probs[0, -1, tokenizer.encode("good")[0]]
-    prob_bad = probs[0, -1, tokenizer.encode("bad")[0]]
-
-    # Map the probabilities to labels
-    predicted_label = 1 if prob_good > prob_bad else 0
-
-    # Append the predicted label to the list
+    # Decode the predicted token
+    predicted_token = tokenizer.decode(predicted_token_id[0].item())
+    print(predicted_token)
+    predicted_label = 0 if predicted_token == 'bad' else 1
+    # Append the predicted token to the list
+    predicted_tokens.append(predicted_token)
     predicted_labels.append(predicted_label)
+# Write the predicted tokens to the "llama_out.txt" file
+with open("llama_out.txt", "w") as file:
+    for token in predicted_tokens:
+        file.write(token + "\n")
 
-# Write the predicted labels to the "llama_out.txt" file
+
 with open("llama_out.txt", "w") as file:
     for label in predicted_labels:
         file.write(str(label) + "\n")
+
+
+
+    # # Get the model output for the input_ids
+    # with torch.no_grad():
+    #     outputs = model(input_ids=input_ids)
+    #     logits = outputs[0]
+    #     print(logits.shape)
+
+    # # Extract the probability for the token "good" and "bad"
+    # output_map = {"bad": 0, "good": 1}
+    # probs = torch.softmax(logits, dim=-1)
+    # prob_good = probs[0, -1, tokenizer.encode("good")[0]]
+    # prob_bad = probs[0, -1, tokenizer.encode("bad")[0]]
+
+    # # Map the probabilities to labels
+    # predicted_label = 1 if prob_good > prob_bad else 0
+
+    # # Append the predicted label to the list
+    # predicted_labels.append(predicted_label)
+
+# Write the predicted labels to the "llama_out.txt" file
+# with open("llama_out.txt", "w") as file:
+    # for label in predicted_labels:
+        # file.write(str(label) + "\n")
     
 # chunk_size = 4
 # # chunk_size = ceil(len(docs) / self.num_cpus)
