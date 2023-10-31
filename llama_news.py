@@ -65,7 +65,6 @@ print(f"Converting texts into tensors.")
 if model_name =='llama':
     prompt = """
 For the text classification task, you will be provided with textual information on various subjects: politics, sports, business, and technology.
-Your goal is to determine the topic of the text among these categories.
 Please utilize the content provided to classify the text into one of the following topics: 'politics', 'sports', 'business', or 'technology'.
 Choose the category that best represents the content of the text.
 
@@ -83,12 +82,14 @@ Output: politics
 
 Input: Ukraine PM on Verge of Victory, Rival Cries Foul. KIEV ( Reuters ) - Ukraine's prime minister was on the verge of victory in a presidential election on Monday but his liberal rival accused the authorities of mass fraud and told thousands of supporters to stay on the streets in protest.
 Output: politics
+
+Input: FDA approves injecting ID chips in patients. The US Food and Drug Administration has approved the practice of injecting humans with tracking devices for medical purposes, according to a Florida company that makes the devices.
+Ouput: business
 
 Input: """
 else:
     prompt = """
 For the text classification task, you will be provided with textual information on various subjects: politics, sports, business, and technology.
-Your goal is to determine the topic of the text among these categories.
 Please utilize the content provided to classify the text into one of the following topics: 'politics', 'sports', 'business', or 'technology'.
 Choose the category that best represents the content of the text.
 
@@ -106,6 +107,9 @@ Output: politics
 
 Input: Ukraine PM on Verge of Victory, Rival Cries Foul. KIEV ( Reuters ) - Ukraine's prime minister was on the verge of victory in a presidential election on Monday but his liberal rival accused the authorities of mass fraud and told thousands of supporters to stay on the streets in protest.
 Output: politics
+
+Input: FDA approves injecting ID chips in patients. The US Food and Drug Administration has approved the practice of injecting humans with tracking devices for medical purposes, according to a Florida company that makes the devices.
+Ouput: business
 
 Input: """
 output_map = {"politics": 0, "sports": 1, "business" : 2, "technology": 4, None: 0}
