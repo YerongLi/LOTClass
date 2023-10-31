@@ -96,6 +96,9 @@ Output: business
 Input: Apple Extends iTunes to Europe. The EU iTunes Music Store retains the same features and per-song price of 99 euro cents, established in June for customers in UK, Germany and France.
 Output: technology
 
+Input: Karzai #39;s lead shows Afghan ethnic divide. Hamid Karzai has been cruising to victory in Afghanistan #39;s first direct presidential elections, but the returns so far have underscored the ethnic fault lines that often divide the country.
+Ouput: politics
+
 Input: Ukraine PM on Verge of Victory, Rival Cries Foul. KIEV ( Reuters ) - Ukraine's prime minister was on the verge of victory in a presidential election on Monday but his liberal rival accused the authorities of mass fraud and told thousands of supporters to stay on the streets in protest.
 Output: politics
 
