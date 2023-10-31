@@ -103,7 +103,7 @@ Input: Ukraine PM on Verge of Victory, Rival Cries Foul. KIEV ( Reuters ) - Ukra
 Output: politics
 
 Input: """
-output_map = {"politics": 0, "sports": 1, "business" : 2, "technology": 4}
+output_map = {"politics": 0, "sports": 1, "business" : 2, "technology": 4, None: 0}
 for input_text in tqdm(docs):
     # Convert text to input_ids
     input_ids = tokenizer.encode(prompt+input_text+"\nOutput:", return_tensors="pt").to(device)
