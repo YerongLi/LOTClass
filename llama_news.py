@@ -63,7 +63,6 @@ docs = docs[:120]
 print(f"Converting texts into tensors.")
 if model_name =='llama':
     prompt = """
-For the text classification task, you will be provided with textual information on various subjects: politics, sports, business, and technology.
 Please utilize the content provided to classify the text into one of the following topics: 'politics', 'sports', 'business', or 'technology'.
 Choose the category that best represents the content of the text.
 
@@ -88,7 +87,6 @@ Ouput: business
 Input: """
 else:
     prompt = """
-For the text classification task, you will be provided with textual information on various subjects: politics, sports, business, and technology.
 Please utilize the content provided to classify the text into one of the following topics: 'politics', 'sports', 'business', or 'technology'.
 Choose the category that best represents the content of the text.
 
