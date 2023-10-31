@@ -83,6 +83,7 @@ Output: politics
 
 Input: Sony in tune over digital music. But, if the digital music player becomes as ubiquitous as the VCR, at least there won #39;t be thousands of us forever cursing: #39;I bought a bloody Sony.
 Output: technology
+
 Input: FDA approves injecting ID chips in patients. The US Food and Drug Administration has approved the practice of injecting humans with tracking devices for medical purposes, according to a Florida company that makes the devices.
 Ouput: business
 
@@ -109,6 +110,7 @@ Output: politics
 
 Input: Sony in tune over digital music. But, if the digital music player becomes as ubiquitous as the VCR, at least there won #39;t be thousands of us forever cursing: #39;I bought a bloody Sony.
 Output: technology
+
 Input: FDA approves injecting ID chips in patients. The US Food and Drug Administration has approved the practice of injecting humans with tracking devices for medical purposes, according to a Florida company that makes the devices.
 Ouput: business
 
