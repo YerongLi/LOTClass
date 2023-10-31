@@ -39,6 +39,11 @@ if args.vote:
     print(f'Recall: {recall:.4f}')
     print(f'F1 Score: {f1:.4f}')
 
+    # Save voting results to a file
+    with open(f'datasets/{dataset}/step_4_test_prediction.txt', 'w') as output_file:
+        for label in voted_predictions:
+            output_file.write(f"{label}\n")
+
 else:
     model_filenames = {'vc': 'vc_out.txt', 'llama': 'llama_out.txt', 'lot': 'out.txt'}
     model_file = model_filenames[args.model]
