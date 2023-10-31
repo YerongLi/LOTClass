@@ -9,14 +9,14 @@ def parse_args():
     parser.add_argument("--data", choices=["movies", "news"], default="movies", help="Choose the model")
     return parser.parse_args()
 
-
+# Parse arguments
+args = parse_args()
+dataset = arg.data
 # Read the ground truth labels
 with open(f'datasets/{dataset}/{dataset}_train_labels.txt', 'r') as file:
     true_labels = [int(line.strip()) for line in file]
 
-# Parse arguments
-args = parse_args()
-dataset = arg.data
+
 if args.vote:
     filenames = ['out.txt', 'vc_out.txt', 'llama_out.txt']
     predicted_labels = []
