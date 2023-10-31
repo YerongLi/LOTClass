@@ -30,8 +30,8 @@ def todevice(feat, device):
     # Return the modified feat
     return tuple(modified_feat)
 logging.info(f'Logger start: {os.uname()[1]}')
-model_path, model_name = "/scratch/yerong/.cache/pyllama/vicuna-7b-v1.3", "vc"
-# model_path, model_name = "/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/", 'llama'
+# model_path, model_name = "/scratch/yerong/.cache/pyllama/vicuna-7b-v1.3", "vc"
+model_path, model_name = "/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/", 'llama'
 print(model_name)
 # device = "cuda:0"  # You can set this to "cpu" if you don't have a GPU
 device='cuda:0'
