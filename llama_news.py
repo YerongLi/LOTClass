@@ -81,6 +81,8 @@ Output: politics
 Input: Ukraine PM on Verge of Victory, Rival Cries Foul. KIEV ( Reuters ) - Ukraine's prime minister was on the verge of victory in a presidential election on Monday but his liberal rival accused the authorities of mass fraud and told thousands of supporters to stay on the streets in protest.
 Output: politics
 
+Input: Sony in tune over digital music. But, if the digital music player becomes as ubiquitous as the VCR, at least there won #39;t be thousands of us forever cursing: #39;I bought a bloody Sony.
+Output: technology
 Input: FDA approves injecting ID chips in patients. The US Food and Drug Administration has approved the practice of injecting humans with tracking devices for medical purposes, according to a Florida company that makes the devices.
 Ouput: business
 
@@ -105,6 +107,8 @@ Output: politics
 Input: Ukraine PM on Verge of Victory, Rival Cries Foul. KIEV ( Reuters ) - Ukraine's prime minister was on the verge of victory in a presidential election on Monday but his liberal rival accused the authorities of mass fraud and told thousands of supporters to stay on the streets in protest.
 Output: politics
 
+Input: Sony in tune over digital music. But, if the digital music player becomes as ubiquitous as the VCR, at least there won #39;t be thousands of us forever cursing: #39;I bought a bloody Sony.
+Output: technology
 Input: FDA approves injecting ID chips in patients. The US Food and Drug Administration has approved the practice of injecting humans with tracking devices for medical purposes, according to a Florida company that makes the devices.
 Ouput: business
 
