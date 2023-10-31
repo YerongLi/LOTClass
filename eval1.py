@@ -11,7 +11,7 @@ def parse_args():
 
 # Parse arguments
 args = parse_args()
-dataset = arg.data
+dataset = args.data
 # Read the ground truth labels
 with open(f'datasets/{dataset}/{dataset}_train_labels.txt', 'r') as file:
     true_labels = [int(line.strip()) for line in file]
