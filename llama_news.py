@@ -115,7 +115,10 @@ for input_text in tqdm(docs):
     # Decode the predicted token
     predicted_token = tokenizer.decode(predicted_token_id[0].item())
     print(predicted_token)
-    predicted_label = output_map[predicted_token]
+    try:
+        predicted_label = output_map[predicted_token]
+    except :
+        predicted_label = 0
     # Append the predicted token to the list
     predicted_tokens.append(predicted_token)
     predicted_labels.append(predicted_label)
