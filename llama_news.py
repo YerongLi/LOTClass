@@ -106,6 +106,15 @@ Output: technology
 Input: FDA approves injecting ID chips in patients. The US Food and Drug Administration has approved the practice of injecting humans with tracking devices for medical purposes, according to a Florida company that makes the devices.
 Ouput: business
 
+Input: Kofi Annan #39;s Son Under Scrutiny. NEW YORK - The US Justice Department criminal probe into the UN Oil-for-Food program is focusing on several individuals, among them UN Secretary-General Kofi Annan #39;s son
+Ouput: politics
+
+Input: Photo: Seagate's new pocket drive. The 3-inch Seagate USB 2.0 Pocket Hard Drive has a retractable USB cable and rubber feet designed to keep it still when it's being using with a desktop.
+Output: technology
+
+Input: End of the line for Waterloo #39;s Eurostars. which cost 130million and opened only 10 years ago - is to close. The fleet of Eurostar trains, which connect London with Paris
+Output: business
+
 Input: """
 else:
     prompt = """
@@ -132,6 +141,15 @@ Output: technology
 
 Input: FDA approves injecting ID chips in patients. The US Food and Drug Administration has approved the practice of injecting humans with tracking devices for medical purposes, according to a Florida company that makes the devices.
 Ouput: business
+
+Input: Kofi Annan #39;s Son Under Scrutiny. NEW YORK - The US Justice Department criminal probe into the UN Oil-for-Food program is focusing on several individuals, among them UN Secretary-General Kofi Annan #39;s son
+Ouput: politics
+
+Input: Photo: Seagate's new pocket drive. The 3-inch Seagate USB 2.0 Pocket Hard Drive has a retractable USB cable and rubber feet designed to keep it still when it's being using with a desktop.
+Output: technology
+
+Input: End of the line for Waterloo #39;s Eurostars. which cost 130million and opened only 10 years ago - is to close. The fleet of Eurostar trains, which connect London with Paris
+Output: business
 
 Input: """
 output_map = {"politics": 0, "sports": 1, "business" : 2, "technology": 3, None: 0}
