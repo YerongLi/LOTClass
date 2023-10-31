@@ -97,7 +97,7 @@ Input: Apple Extends iTunes to Europe. The EU iTunes Music Store retains the sam
 Output: technology
 
 Input: """
-output_map = {"bad": 0, "good": 1}
+output_map = {"politics": 0, "sports": 1, "business" : 2, "technology": 4}
 for input_text in tqdm(docs):
     # Convert text to input_ids
     input_ids = tokenizer.encode(prompt+input_text+"\nOutput:", return_tensors="pt").to(device)
