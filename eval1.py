@@ -6,9 +6,9 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Calculate metrics and voting for predicted labels.")
     parser.add_argument("--vote", action="store_true", help="Perform voting from multiple output files")
     parser.add_argument("--model", choices=["vc", "llama", "lot"], default="lot", help="Choose the model")
+    parser.add_argument("--data", choices=["movies", "news"], default="movies", help="Choose the model")
     return parser.parse_args()
 
-dataset = 'movies'
 
 # Read the ground truth labels
 with open(f'datasets/{dataset}/{dataset}_train_labels.txt', 'r') as file:
@@ -16,7 +16,7 @@ with open(f'datasets/{dataset}/{dataset}_train_labels.txt', 'r') as file:
 
 # Parse arguments
 args = parse_args()
-
+dataset = arg.data
 if args.vote:
     filenames = ['out.txt', 'vc_out.txt', 'llama_out.txt']
     predicted_labels = []
