@@ -1,9 +1,12 @@
+import argparse
+
 import os
 from math import ceil
 import logging
 import torch
 import os
 import pickle
+import numpy as np
 from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer,LlamaForCausalLM
 dataset='movies'
@@ -13,6 +16,17 @@ logging.basicConfig(
     filename='./output.log',
     datefmt='%m-%d %H:%M:%S',
     force=True)
+# Function to parse arguments
+def parse_args():
+    parser = argparse.ArgumentParser(description="Script description")
+    parser.add_argument(
+        "--model",
+        choices=["llama", "vc"],
+        default="llama",
+        help="Choose the model (llama or vc). Default is llama.",
+    )
+    return parser.parse_args()
+
 def todevice(feat, device):
     # Initialize an empty list to store the modified tensors
     modified_feat = []
@@ -32,9 +46,13 @@ def todevice(feat, device):
 logging.info(f'Logger start: {os.uname()[1]}')
 # model_path = "/scratch/yerong/.cache/pyllama/vicuna-7b-v1.3"
 # model_path = "/scratch/yerong/.cache/pyllama/Llama-2-7b-chat-hf/"
-model_path, model_name = "/scratch/yerong/.cache/pyllama/vicuna-7b-v1.3", "vc"
+# Load model based on argparse choice
+args = parse_args()
+model_path, model_name = (
+    "/scratch/yerong/.cache/pyllama/vicuna-7b-v1.3", "vc"
+) if args.model == "vc" else ("/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/", "llama")
+
 print(model_name)
-# model_path, model_name = "/scratch/yerong/.cache/pyllama/Llama-2-7b-hf/", 'llama'
 # device = "cuda:0"  # You can set this to "cpu" if you don't have a GPU
 device='cuda:0'
 
