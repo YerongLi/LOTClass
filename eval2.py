@@ -38,7 +38,7 @@ if args.vote:
 
 else:
     # Read the predicted labels from out.txt for single-file evaluation
-    with open('datasets/{dataset}/out_vc.txt', 'r') as file:
+    with open('datasets/{dataset}/out.txt', 'r') as file:
         predicted_labels = [int(line.strip()) for line in file][:100]
 
     # Calculate precision, recall, and F1 score for the single file
